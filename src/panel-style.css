@@ -1,0 +1,292 @@
+/* Styling for Menus */
+.menu {
+    width: 150px;
+    box-shadow: 3px 3px 5px #888888;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(128, 128, 128);
+    border-radius: 2px;
+    position: fixed;
+    display: none;
+    background-color: #E8E8E8;
+}
+
+.menu-item {
+    height: 20px;
+}
+
+.menu-item:hover {
+    background-color: #6CB5FF;
+    cursor: pointer;
+    color: #fff;
+}
+/* End of Styling For Menus */
+
+/* Styling for Editing Node */
+.EditNode {
+    width: 150px;
+    box-shadow: 3px 3px 5px #888888;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(128, 128, 128);
+    border-radius: 2px;
+    position: fixed;
+    display: none;
+    background-color: #E8E8E8;
+}
+
+/* End of Styling for Editing Node */
+
+/* Add Node Styling */
+
+.AddNode {
+    width: 150px;
+    box-shadow: 3px 3px 5px #888888;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(128, 128, 128);
+    border-radius: 2px;
+    position: fixed;
+    display: none;
+    background-color: #E8E8E8;
+}
+
+#submitAddNode {
+    background-color: #6CB5FF;
+    cursor: pointer;
+    color: #fff;
+}
+
+#submitAddNodeCancel {
+    background-color: #6CB5FF;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* End of Add Node Styling */
+
+#submitUpdatedNode {
+    background-color: #6CB5FF;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+#submitUpdatedNodeCancel {
+    background-color: #6CB5FF;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+/* close icon */
+
+.close {
+    position: absolute;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    opacity: 0.8;
+    display: none;
+}
+
+.close:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    content: ' ';
+    height: 12px;
+    width: 3px;
+    background-color: red;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+/* End of Close Icon */
+
+/* Add Icon */
+
+.add {
+    position: absolute;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    opacity: 0.8;
+    display: none;
+}
+
+.add:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.add:before,
+.add:after {
+    position: absolute;
+    content: ' ';
+    height: 12px;
+    width: 3px;
+    background-color: green;
+}
+
+.add:before {
+    transform: rotate(90deg);
+}
+
+.add:after {
+    transform: rotate(-180deg);
+}
+
+/* End of Add Icon */
+
+.node {
+    cursor: pointer;
+}
+
+.node circle {
+    fill: #E9C9C9;
+    stroke: #8F8F8F;
+    stroke-width: 1px;
+}
+
+.node text {
+    font: 10px sans-serif;
+}
+
+.link {
+    fill: none;
+    stroke: #333;
+    stroke-width: 1px;
+}
+
+.link text {
+    font-size: 10px;
+    fill: #333;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 70px;
+    height: 40px;
+    padding: 2px;
+    font: 10px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* cog wheel Icon */
+
+.update {
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    height: 15px;
+    position: absolute;
+    width: 23px;
+    display: none;
+}
+
+.update:before,
+.update:after {
+    background-image: /* Blue overlap */
+    radial-gradient(-50% 50%, circle, transparent 45%, #fff 45%, #fff 50%, #0085c7 50%, #0085c7 65%, #fff 65%, #fff 70%, transparent 70%);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    right: 0;
+}
+
+.update:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* config cards */
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 90%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: #F1EFF0;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 15px 16px;
+    display: none;
+}
+
+
+.nodeCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 90%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: #F1EFF0;
+}
+
+.nodeCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nodeContainer {
+    padding: 15px 16px;
+    display: none;
+}
+
+
+.btn {
+    display: none;
+    float: right;
+    bottom: 0;
+    margin: 5px;
+    height: 20px;
+    display: none;
+    border: none;
+    background: #B2ACAB;
+    color: #F1EFF0;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.alert-box {
+    position: absolute;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    display: none;
+}

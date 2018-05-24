@@ -8,7 +8,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "hierarcial-data-representation": "sanjaymahto/hierarchical-data-representation#origin/feature/refactoring-code"
+    "hierarcial-data-representation": "sanjaymahto/hierarchical-data-representation#origin/feature/event-listener"
   },
   "devDependencies": {
     "babel-loader": "^7.1.4",

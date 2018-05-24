@@ -7,5 +7,7 @@ module.exports = {
         "no-underscore-dangle": 0,
         "no-param-reassign": 0,
         "no-unused-vars": 0,
+        "no-case-declarations": 0,
+        "default-case":0
     }
 };

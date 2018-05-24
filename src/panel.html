@@ -1,46 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="panel-style.css">
-        <style>
-            .node {
-                cursor: pointer;
-            }
-            .node circle {
-                fill: #E9C9C9;
-                stroke: #8F8F8F;
-                stroke-width: 1px;
-            }
-            .node text {
-                font: 10px sans-serif;
-            }
-            .link {
-                fill: none;
-                stroke: #333;
-                stroke-width: 1px;
-            }
-            .link text {
-                font-size: 10px;
-                fill: #333;
-            }
 
-            .tooltip {
-                position: absolute;
-                text-align: center;
-                width: 70px;
-                height: 40px;
-                padding: 2px;
-                font: 10px sans-serif;
-                background: lightsteelblue;
-                border: 0px;
-                border-radius: 8px;
-                pointer-events: none;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="chart"></div>
-        <script src="datatable_devtools.js"></script>
-    </body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="panel-style.css">
+    <style type="text/css">
+        .st0 {
+            fill: #FFFFFF;
+        }
+
+        .st1 {
+            fill: #7EC5FF;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Context Menu -->
+    <div class="menu">
+        <div class="menu-item" id="layoutDefinition">Export Layout Definition</div>
+        <!-- <div class="menu-item" id="deleteNode">Delete Node</div> -->
+        <!-- <div class="menu-item" id="updateNode">Update Node</div> -->
+        <!-- <div class="menu-item" id="addNode">Add Node</div> -->
+        <div class="menu-item" id="nodeInfo">Node Details</div>
+        <div class="menu-item" id="AddComponent">Add Component</div>
+    </div>
+    <!-- Edit Node Menu -->
+    <div class="EditNode">
+        <form>
+            cut:
+            <br>
+            <input id="cut" type="text" name="cut" value="" required>
+            <br> ratioWeight:
+            <br>
+            <input id="ratioWeight" type="number" name="ratioWeight" value="" required>
+            <br>
+            <br>
+            <div id="submitUpdatedNode" style="text-align: center;">Update</div>
+            <br>
+            <div id="submitUpdatedNodeCancel" style="text-align: center;">Cancel</div>
+            <br>
+        </form>
+    </div>
+    <!-- Add Node Menu -->
+    <div class="AddNode">
+        <form>
+            <br> Children:
+            <br>
+            <textarea id="nodeChildren" type="text" name="children" value="" required></textarea>
+            <br>
+            <br>
+            <div id="submitAddNode" style="text-align: center;">Add</div>
+            <br>
+            <div id="submitAddNodeCancel" style="text-align: center;">Cancel</div>
+            <br>
+        </form>
+    </div>
+    <!-- Close Icon -->
+    <div class="close" id="deleteNode"></div>
+    <!-- Add Icon -->
+    <div class="add" id="addNode"></div>
+    <!-- Update Node -->
+    <div class="update">
+        <svg style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <circle id="updateNodecircle" class="st0" cx="64" cy="64" r="64" />
+            <path class="st1" id="updateNode" d="M103,57h-9.1c-0.5,0-0.8-0.3-1-0.7c-0.7-2.6-1.7-5-3-7.3c-0.2-0.4-0.2-0.9,0.1-1.2l6.4-6.4c0.4-0.4,0.4-1,0-1.4  
+            L88,31.5c-0.4-0.4-1-0.4-1.4,0l-6.4,6.4c-0.3,0.3-0.8,0.4-1.2,0.2c-2.3-1.3-4.7-2.3-7.3-3c-0.4-0.1-0.7-0.5-0.7-1V25  
+            c0-0.6-0.4-1-1-1H58c-0.6,0-1,0.4-1,1v9.1c0,0.5-0.3,0.8-0.7,1c-2.6,0.7-5,1.7-7.3,3c-0.4,0.2-0.9,0.2-1.2-0.1  
+            c-1.4-1.4-4.9-4.9-6.4-6.4c-0.4-0.4-1-0.4-1.4,0L31.5,40c-0.4,0.4-0.4,1,0,1.4l6.4,6.4c0.3,0.3,0.4,0.8,0.2,1.2  
+            c-1.3,2.3-2.3,4.7-3,7.3c-0.1,0.4-0.5,0.7-1,0.7H25c-0.6,0-1,0.4-1,1v12c0,0.6,0.4,1,1,1h9.1c0.5,0,0.8,0.3,1,0.7  
+            c0.7,2.6,1.7,5,3,7.3c0.2,0.4,0.2,0.9-0.1,1.2c-1.4,1.4-4.9,4.9-6.4,6.4c-0.4,0.4-0.4,1,0,1.4l8.5,8.5c0.4,0.4,1,0.4,1.4,0l6.4-6.4  
+            c0.3-0.3,0.8-0.4,1.2-0.2c2.3,1.3,4.7,2.3,7.3,3C56.8,93,57,93.5,57,94v9c0,0.6,0.5,1,1.1,1h12c0.6,0,0.9-0.4,0.9-1v-9  
+            c0-0.5,0.4-0.9,0.8-1.1c2.6-0.7,5-1.7,7.3-3c0.4-0.2,0.9-0.2,1.2,0.1c1.4,1.4,4.9,4.9,6.4,6.4c0.4,0.4,1,0.4,1.4,0l8.5-8.5  
+            c0.4-0.4,0.4-1,0-1.4l-6.4-6.4c-0.3-0.3-0.4-0.8-0.2-1.2c1.3-2.3,2.3-4.6,3-7.2c0.1-0.4,0.5-0.7,1-0.7h9.1c0.5,0.1,0.9-0.4,0.9-1V58 
+             C104,57.4,103.6,57,103,57z M64,82c-9.9,0-18-8.1-18-18s8.1-18,18-18s18,8.1,18,18S73.9,82,64,82z" />
+        </svg>
+    </div>
+    <!-- config Card -->
+    <div class="card">
+        <div class="container" id="configCard">
+            <h3>: Layout Definition :</h3>
+        </div>
+        <button class="btn" id="copylayoutDefinition">
+            Copy to Clipboard</button>
+    </div>
+    <!-- Node Info Card -->
+    <div class="nodeCard">
+        <div class="NodeContainer" id="NodeConfigCard">
+            <h3>: Node Info :</h3>
+        </div>
+    </div>
+    <!-- Add component Menu -->
+    <div class="AddNode">
+        <form>
+            <br> Children:
+            <br>
+            <textarea id="nodeChildren" type="text" name="children" value="" required></textarea>
+            <br>
+            <br>
+            <div id="submitAddNode" style="text-align: center;">Add</div>
+            <br>
+            <div id="submitAddNodeCancel" style="text-align: center;">Cancel</div>
+            <br>
+        </form>
+    </div>
+    <div class="alert-box success" id="copyAlert">Copied To clipboard!</div>
+    <div id="chart"></div>
+    <script src="datatable_devtools.js"></script>
+</body>
+
 </html>
